@@ -7,13 +7,18 @@
 ###### Author:..Kuro-code
 ###### Info:....Phishing tool
 
+###### Ver:.....1.1
+###### Date:....03/28/2018
+###### Author:..Kuro-code
+###### Info:....Phishing tool
+
 * Attack Switcher for phishing: Facebook, Pinterest, Linkedin, twitter.
 
 ######     [!] Special thanks: Z0mB13DoLL [!]
 
-### Skeleton key 1.0 beta ###
-![20934728_264801284009902_1369642974668490900_o.jpg](https://github.com/KURO-CODE/Skeleton/blob/master/20934728_264801284009902_1369642974668490900_o.jpg)
+### Skeleton key 1.1 ###
+![skeleton1.1.jpg](https://github.com/KURO-CODE/Skeleton/blob/master/skeleton1.1.jpg)
 # Use #
 
 *  chmod +x skeleton.sh
-* ./skeleton.sh
+* sudo ./skeleton.sh
