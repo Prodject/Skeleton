@@ -22,8 +22,8 @@
 * Date:....03/28/2018
 * Coder:...Kuro-code
 
--Attack Switcher BugFix
--Exit (Revision)
+* Attack Switcher BugFix
+* Exit (Revision)
 
 # Use #
 
