@@ -1,6 +1,6 @@
 ### Skeleton key 1.1 ###
 
-######     [!] Special thanks: Z0mB13DoLL [!]
+######     [!] Special thanks: Z0mB13Do77 [!]
 
 ![skeleton1.1.jpg](https://github.com/KURO-CODE/Skeleton/blob/master/skeleton1.1.jpg)
 
