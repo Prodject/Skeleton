@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#~~~ INFO ~~~
+#**** INFO ****
 #
 # Skeleton is a Social Engineering tool attack switcher
 # Type: Phishing Tool
@@ -94,7 +94,6 @@ MENU_info="$W~ I N F O ~"
 MENU_skel="$W~ Skeleton menu ~"
 MENU_skel1="$B""S$W""E$GR""le$W""CT"
 MENU_skel2="Select an attack"
-
 
 #~~~ START ~~~
 function RUN {
@@ -374,11 +373,11 @@ function inf {
 	  $W|$CL$G Dev:.....Bash          $EC$W|
 	  $W|$CL$G Ver:.....$VERSION           $EC$W|
 	  $W|$CL$G Date:....08/14/2017    $EC$W|
-	  $W|$CL$G Author:..Kuro-code     $EC$W|
+	  $W|$CL$G Coder:...Kuro-code     $EC$W|
 	  $W|$CL$G Info:....Phishing tool $EC$W|
 	  $B""o$W------------------------$B""o$W
 
-      [$M!$W] Special thanks: Z0mB13DoLL [$M!$W]
+      [$M!$W] Special thanks: Z0mB13Do77 [$M!$W]
 
      [$Y¡$W] Press$Y Enter$W, return main menu [$Y¡$W]$EC 	
 "
@@ -458,19 +457,16 @@ $W[$G+$W]$GR Clean temporary files"
 
 #~~~~ FLAG ~~~~
 function FLAG {
-
 	echo -e "$B  _______$W __          __       __                  
  $B|   _   |$W  |--.-----|  .-----|  |_.-----.-----.   
  $B|   1___|$W    <|  -__|  |  -__|   _|  _  |     |   
  $B|____   |$W""__|__|_____|__|_____|____|_____|__|__|   
  $B|:  1   |                                         
  $B|_______|     $W""Social engineering tool$GE v$VERSION$EC "
-
 }
 
 #~~~~ Hard Exit ~~~~
 function cap_traps() {
-
 	case $Place in
 		"Run") clear; EXITMODE;;
 		"MAIN") clear; EXITMODE;;
