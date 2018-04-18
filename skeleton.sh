@@ -21,7 +21,7 @@
 #**********************
 #
 # Name: Skeleton
-# Version: 1.0 beta
+# Version: 1.1
 # Dev: Shell
 # Language: En        
 # Date: 03/28/2018   
